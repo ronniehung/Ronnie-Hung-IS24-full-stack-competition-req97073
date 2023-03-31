@@ -17,7 +17,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 GET all products: GET http://localhost:3000/api/products/
 GET product by id: GET http://localhost:3000/api/products/1
 
-## POST a new product
+### POST a new product
 POST http://localhost:3000/api/products/ with body: 
 ```
 {
@@ -36,7 +36,7 @@ POST http://localhost:3000/api/products/ with body:
  }
  ```
 
- ## PUT a product by id
+ ### PUT a product by id
 PUT http://localhost:3000/api/products/1 with body:
  ```
  {
@@ -55,7 +55,7 @@ PUT http://localhost:3000/api/products/1 with body:
  }
  ```
 
- ## DELETE a product by id
+ ### DELETE a product by id
  DELETE http://localhost:3000/api/products/1
 
 
