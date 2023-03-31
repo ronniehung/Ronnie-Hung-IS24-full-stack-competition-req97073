@@ -59,9 +59,9 @@ PUT http://localhost:3000/api/products/1 with body:
  DELETE http://localhost:3000/api/products/1
 
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
 API routes can be accessed on [http://localhost:3000/api/products](http://localhost:3000/api/products) or http://localhost:3000/api/products/:productId.
+
 
 ## Frameworks Used ##
 * Next.js/React
