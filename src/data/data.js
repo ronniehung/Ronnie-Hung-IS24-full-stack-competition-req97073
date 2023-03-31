@@ -79,5 +79,49 @@ export const products = [
         scrumMasterName: "Ted",
         startDate: "2023-03-25",
         methodology: "Waterfall"
-  }
+  },
+  { 
+    productId: 7,
+    productName: "Product7",
+    productOwnerName: "Rachel",
+    developers: [
+      "Chris",
+      "Chloe",
+      "Cameron",
+      "Cindy",
+      "Carl"
+    ],
+    scrumMasterName: "Samantha",
+    startDate: "2023-03-15",
+    methodology: "Agile" 
+  },
+  { 
+    productId: 8,
+    productName: "Product8",
+    productOwnerName: "Michael",
+    developers: [
+      "David",
+      "Diana",
+      "Danny",
+      "Darren"
+    ],
+    scrumMasterName: "Emily",
+    startDate: "2023-03-20",
+    methodology: "Scrum"  
+  },
+  { 
+    productId: 9,
+    productName: "Product9",
+    productOwnerName: "Sophie",
+    developers: [
+      "Eric",
+      "Evelyn",
+      "Evan",
+      "Ella",
+      "Ethan"
+    ],
+    scrumMasterName: "Oliver",
+    startDate: "2023-03-25",
+    methodology: "Waterfall"  
+  },
   ];

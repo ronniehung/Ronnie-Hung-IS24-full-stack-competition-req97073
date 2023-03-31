@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Table, Button, Input, Modal, ModalHeader, ModalBody } from 'reactstrap';
+import { Table, Button, Input, Modal, ModalHeader, ModalBody, FormGroup, Label } from 'reactstrap';
 
 import AddProductForm from '../components/AddProductForm';
 import EditProductForm from '../components/EditProductForm';
@@ -13,12 +13,17 @@ export default function ProductList() {
     const [addModal, setAddModal] = useState(false);
     const [editModal, setEditModal] = useState(false);
     const [shouldRefresh, setShouldRefresh] = useState(false);
+    const [isSearchScrum, setIsSearchScrum] = useState(true);
 
     const [filteredProducts, setFilteredProducts] = useState([]);
   
     const handleSearch = (event) => {
       setSearchTerm(event.target.value);
     };
+
+    const switchSearch = () => {
+      setIsSearchScrum(!isSearchScrum);
+    }
   
     useEffect(() => {
       fetchProducts();
@@ -28,9 +33,12 @@ export default function ProductList() {
       if (searchTerm === "") {
         setFilteredProducts(products);
       } else {
-        const filtered = products.filter((product) =>
-          product.name.toLowerCase().includes(searchTerm.toLowerCase())
-        );
+        //if isSearchScrum is true, search products by Scrum Master
+        //else, search products by Developer
+        const filtered = isSearchScrum ? 
+        products.filter((product) => product.scrumMasterName.toLowerCase().includes(searchTerm.toLowerCase())) :
+        products.filter((product) => product.developers.map((name) => name.toLowerCase()).includes(searchTerm.toLowerCase()));
+        
         setFilteredProducts(filtered);
       }
     }, [searchTerm, products]);
@@ -77,14 +85,18 @@ export default function ProductList() {
     <>
       <div>
         <h1>Products</h1>
-        {/* <div className="d-flex justify-content-between mb-2"> */}
-          {/* <Input
+        <div className="mb-2">
+          {<Input
             type="text"
             placeholder="Search products"
             value={searchTerm}
             onChange={handleSearch}
-          /> */}
-        {/* </div> */}
+          />}
+          <FormGroup switch>
+            <Label check>Search by {isSearchScrum ? 'Scrum Master' : 'Developer'}</Label>
+            <Input type="switch" role="switch" onChange={switchSearch} />
+          </FormGroup>
+        </div>
         <Table>
           <thead>
             <tr>
@@ -134,7 +146,7 @@ export default function ProductList() {
           <Button color="success" onClick={handleAddProduct}>
             Add Product
           </Button>
-          <p>Total Products: {products.length}</p>
+          <p>Total Products: {filteredProducts.length}</p>
         </div>
         
 
