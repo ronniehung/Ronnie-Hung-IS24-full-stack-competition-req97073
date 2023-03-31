@@ -59,10 +59,6 @@ PUT http://localhost:3000/api/products/1 with body:
  DELETE http://localhost:3000/api/products/1
 
 
-
-API routes can be accessed on [http://localhost:3000/api/products](http://localhost:3000/api/products) or http://localhost:3000/api/products/:productId.
-
-
 ## Frameworks Used ##
 * Next.js/React
 * Bootstrap (reactstrap)
