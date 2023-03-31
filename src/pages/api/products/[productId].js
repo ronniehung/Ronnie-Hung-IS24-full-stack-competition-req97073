@@ -7,7 +7,7 @@ export default function handler(req, res) {
   
     switch (req.method) {
       case "GET":
-        // Get all products
+        // Get product by id
         if (productId) {
             //find index of product in data
             const index = products.findIndex((product) => product.productId === Number(productId));
